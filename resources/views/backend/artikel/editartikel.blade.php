@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Add Slider
+Add Artikel
 @endsection
 
 @section('content')
@@ -15,24 +15,28 @@ Add Slider
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                        <a href="{{route('viewslider')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
+                        <a href="{{route('viewartikel')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
                 <center>
-                    <h5 style="margin-left:20px" class="m-0">Edit Slider</h5>
+                    <h5 style="margin-left:20px" class="m-0">Edit Artikel</h5>
                 </center>
             </div>
             <div class="card-body">
-                <form action="{{route('updateslider')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('updateartikel')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id_slider" value="{{$data->id_slider}}">
+                    <input type="hidden" name="id_artikel" value="{{$data->id_artikel}}">
                     <div class="form-group">
-                        <label for="">Uploa dFile</label>
-                        <input type="file" name="slider" id="slider" class="form-control">
-                        <i style="color:red">File : <a style="color:black" href="{{asset('/slider/'.$data->image)}}">{{$data->image}}</a></i>
+                        <label for="">Judul Artikel</label>
+                        <input type="text" name="judul" id="judul" value="{{$data->judul}}" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" name="image" id="image" class="form-control">
+                        <i style="color:red">File : <a style="color:black" href="{{asset('/artikel/'.$data->foto)}}">{{$data->foto}}</a></i>
                     </div>
                     <div class="form-group">
                         <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" class="form-control">{{$data->description}}</textarea>
+                        <textarea name="deskripsi" id="" class="form-control">{{$data->descripsi}}</textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>

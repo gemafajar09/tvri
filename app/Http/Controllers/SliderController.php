@@ -19,7 +19,6 @@ class SliderController extends Controller
         );
     }
 
-
     public function index()
     {
         $data = DB::table('tb_slider')->get();

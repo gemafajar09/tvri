@@ -21,3 +21,11 @@ Route::post('/saveslider', 'SliderController@save')->name('saveslider');
 Route::post('/updateslider', 'SliderController@update')->name('updateslider');
 Route::get('/deleteslider/{id}', 'SliderController@deletes')->name('deleteslider');
 Route::get('/editslider/{id}', 'SliderController@getdata')->name('editslider');
+
+// artikel
+Route::get('/viewartikel', 'ArtikelController@index')->name('viewartikel');
+Route::get('/addartikel', 'ArtikelController@addartikel')->name('addartikel');
+Route::post('/saveartikel', 'ArtikelController@save')->name('saveartikel');
+Route::post('/updateartikel', 'ArtikelController@update')->name('updateartikel');
+Route::get('/deleteartikel/{id}', 'ArtikelController@deletes')->name('deleteartikel');
+Route::get('/editartikel/{id}', 'ArtikelController@getdata')->name('editartikel');
