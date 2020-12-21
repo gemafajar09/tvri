@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\UserModel;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->rules = array(
+            'username' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'password' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/'
+        );
+    }
+
     public function index()
     {
-        if ($request->session()->has('id')) 
+        if ($request->session()->has('id_user')) 
         {
             return redirect("/");
         }
@@ -22,21 +31,22 @@ class LoginController extends Controller
 
     public function login(Request $r)
     {
-        $this->validate($r,[
-            'username' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'password' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/',
-        ]);
-        $username = $r->username;
-        $password = hash("sha512", md5($r->password));
-
-        $cek = DB::table('tb_user')->where('username',$username)->where('password',$password)->first();
-        if($cek == TRUE)
-        {
-            $r->session()->put("id_user", $cek->id_user);
-            $r->session()->put("nama_user", $cek->nama_user);
-            return view('backend.home')->with('pesan','Selamat Datang');
-        }else{
+        $validator = Validator::make($r->all(),$this->rules);
+        if($validator->fails()){
             return back()->with('error','Silahkan Login Kembali');
+        }else{
+            $username = $r->username;
+            $password = hash("sha512", md5($r->password));
+    
+            $cek = DB::table('tb_user')->where('username',$username)->where('password',$password)->first();
+            if($cek == TRUE)
+            {
+                $r->session()->put("id_user", $cek->id_user);
+                $r->session()->put("nama_user", $cek->nama_user);
+                return redirect('home')->with('pesan','Selamat Datang');
+            }else{
+                return back()->with('error','Silahkan Login Kembali');
+            }
         }
     }
 
@@ -67,6 +77,6 @@ class LoginController extends Controller
     	$r->session()->forget('id_user');
         $r->session()->forget('nama_user');
         $r->session()->flush();
-    	return redirect("/");
+    	return redirect("/")->with('pesan', 'Success Logout.');
     }
 }
