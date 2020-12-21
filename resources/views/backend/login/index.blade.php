@@ -22,18 +22,20 @@
 						<div class="login-slide slide">
 							<form action="{{route('login')}}" method="POST" class="padding-40px">
 								@csrf
+								<center><h3>Login Admin</h3></center>
 								<div class="form-group user-name-field">
-									<input required type="text" name="username" class="form-control" placeholder="User name">
+									<input required type="text" id="username" name="username" class="form-control" value="" placeholder="User name">
 									<div class="field-icon"><i class="ion-person"></i></div>
 								</div>
 								<div class="form-group margin-bottom-30px forgot-password-field">
-									<input required type="password" name="password" class="form-control" placeholder="Password">
+									<input required type="password" id="password" name="password" class="form-control" value="" placeholder="Password">
 									<div class="field-icon"><i class="ion-locked"></i></div>
 								</div>
 								<div class="form-group sign-in-btn">
 									<button type="submit" class="submit">Sign In</button>
 								</div>
-								{{session('error')}}
+								<div style="display:none" id="pesan" class="alert alert-success">{{session('pesan')}}</div>
+								<div style="display:none" id="error" class="alert alert-danger">{{session('error')}}</div>
 							</form>
 						</div>
 					</div>
@@ -44,13 +46,15 @@
 	<div id="cd-loading-bar" data-scale="1"></div>
 	@if (session('pesan'))
 	<script>
-		toastr.success('<?= session('pesan') ?>')
+		$('#pesan').show();
+		setInterval(function(){ $('#pesan').hide(); }, 5000);
 	</script>
 	@endif
 	<!-- pesan toast -->
 	@if (session('error'))
 	<script>
-		toastr.error('<?= session('error') ?>')
+		$('#error').show();
+		setInterval(function(){ $('#error').hide(); }, 5000);
 	</script>
 	@endif
 	<!-- JS File -->
@@ -59,5 +63,9 @@
 	<script type="text/javascript" src="{{asset('/login/js/bootstrap.js')}}"></script>
 	<script src="{{asset('/login/js/velocity.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('/login/js/script.js')}}"></script>
+	<script>
+		$('#username').val('')
+		$('#password').val('')
+	</script>
 </body>
 </html>
