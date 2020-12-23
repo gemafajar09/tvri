@@ -17,11 +17,11 @@ class LoginController extends Controller
         );
     }
 
-    public function index()
+    public function index(Request $r)
     {
-        if ($request->session()->has('id_user')) 
+        if ($r->session()->has('id_user')) 
         {
-            return redirect("/");
+            return redirect("home");
         }
         else
         {
@@ -77,6 +77,6 @@ class LoginController extends Controller
     	$r->session()->forget('id_user');
         $r->session()->forget('nama_user');
         $r->session()->flush();
-    	return redirect("/")->with('pesan', 'Success Logout.');
+    	return redirect("index")->with('pesan', 'Success Logout.');
     }
 }

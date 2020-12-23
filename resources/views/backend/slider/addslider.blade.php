@@ -25,12 +25,8 @@ Add Slider
                 <form action="{{route('saveslider')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
-                        <label for="">Uploa dFile</label>
+                        <label for="">Upload File</label>
                         <input type="file" name="slider" id="slider" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" class="form-control"></textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>

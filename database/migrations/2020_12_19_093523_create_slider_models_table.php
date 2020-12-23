@@ -15,7 +15,6 @@ class CreateSliderModelsTable extends Migration
     {
         Schema::create('tb_slider', function (Blueprint $table) {
             $table->id('id_slider');
-            $table->string('description',255);
             $table->string('image',255);
         });
     }

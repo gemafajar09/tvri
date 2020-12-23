@@ -26,8 +26,7 @@ Data Slider
                     <thead>
                         <tr>
                             <th style="width:40px; text-align:center">No</th>
-                            <th style="width:250px;">Deskripsi</th>
-                            <th style="width:250px;">Slider Image</th>
+                            <th style="width:250px; text-align:center">Slider Image</th>
                             <th style="width:60px; text-align:center">Action</th>
                         </tr>
                     </thead>
@@ -35,8 +34,7 @@ Data Slider
                     @foreach($data as $i => $a)
                         <tr>
                             <td>{{$i+1}}</td>
-                            <td>{{$a->description}}</td>
-                            <td><img src="{{asset('/slider/'.$a->image)}}" style="width:120px; height:100px" alt=""></td>
+                            <td style="text-align:center"><img src="{{asset('/slider/'.$a->image)}}" style="width:120px; height:100px" alt=""></td>
                             <td style="text-align:center">
                                 <a href="{{route('editslider',encrypt($a->id_slider))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
                                 <a href="{{route('deleteslider',encrypt($a->id_slider))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>

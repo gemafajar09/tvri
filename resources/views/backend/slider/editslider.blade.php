@@ -26,13 +26,9 @@ Add Slider
                 @csrf
                 <input type="hidden" name="id_slider" value="{{$data->id_slider}}">
                     <div class="form-group">
-                        <label for="">Uploa dFile</label>
+                        <label for="">Upload File</label>
                         <input type="file" name="slider" id="slider" class="form-control">
                         <i style="color:red">File : <a style="color:black" href="{{asset('/slider/'.$data->image)}}">{{$data->image}}</a></i>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" class="form-control">{{$data->description}}</textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>
