@@ -10,6 +10,6 @@ class SliderModel extends Model
     protected $table = 'tb_slider';
     protected $primaryKey = 'id_slider';
     protected $fillable = [
-        'description', 'image'
+        'image'
     ];
 }

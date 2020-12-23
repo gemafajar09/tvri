@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Add Artikel
+Edit Play List Program
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@ Add Artikel
                         <a href="{{route('viewartikel')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
                 <center>
-                    <h5 style="margin-left:20px" class="m-0">Edit Artikel</h5>
+                    <h5 style="margin-left:20px" class="m-0">Edit Play List Program</h5>
                 </center>
             </div>
             <div class="card-body">

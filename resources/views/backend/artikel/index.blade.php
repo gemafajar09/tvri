@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Data Artikel
+Play List Program
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@ Data Artikel
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                    <h5 class="m-0">Data Artikel</h5>
+                    <h5 class="m-0">Play List Program</h5>
                 </div>
                 <div class="float-right">
                     <a href="{{route('addartikel')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
