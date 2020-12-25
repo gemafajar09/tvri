@@ -58,4 +58,24 @@ class JadwalController extends Controller
         return view('backend.jadwal.detailhari',$data);
     }
 
+    // frontend
+    public function showjadwal()
+    {
+        $bulan = date('Y-m');
+        $data['show'] = DB::table('tb_jadwal')->where('filter',$bulan)->groupBy('tanggal')->get();
+        return view('frontend.detailjadwal.index',$data);
+    }
+
+    public function searchjadwal(Request $r)
+    {
+        if($r->bulan == NULL)
+        {
+            $bulan = date('Y-m');
+        }else{
+            $bulan = $r->bulan;
+        }
+        $data['show'] = DB::table('tb_jadwal')->where('filter',$bulan)->groupBy('tanggal')->get();
+        return view('frontend.detailjadwal.index',$data);
+    }
+
 }

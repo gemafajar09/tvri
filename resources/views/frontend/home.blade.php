@@ -140,8 +140,25 @@
       </div>
     </section>
     <!-- End Program Acara -->
-    <center><h3>Kategori Program Acara</h3></center>
+
+    <!-- ======= Instagram ======= -->
+    <section data-aos="fade-up" id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Instagram</h2>
+        </div>
+
+        <!-- SnapWidget -->
+        <!-- SnapWidget -->
+        <iframe src="https://snapwidget.com/embed/901219" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:800px"></iframe>
+
+      </div>
+    </section>
+    <!-- End Program Acara -->
+
     <!-- ======= Kategori Program ======= -->
+    <center><h3>Kategori Program Acara</h3></center>
     <section id="team" class="team">
       <div class="container">
         @foreach($kategori as $i => $kategori)

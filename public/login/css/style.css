@@ -1303,7 +1303,7 @@ p {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ca4fb', endColorstr='#03e0fb',GradientType=1 );
 }
 .style7 .login-slide form{
-	padding-top: 140px;
+	padding-top: 100px;
 	background: url(../images/style7img.png) repeat-x;
 	position: center top;
 }

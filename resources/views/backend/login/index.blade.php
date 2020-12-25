@@ -22,7 +22,7 @@
 						<div class="login-slide slide">
 							<form action="{{route('login')}}" method="POST" class="padding-40px">
 								@csrf
-								<center><h3>Login Admin</h3></center>
+								<center><img src="{{asset('/image/TVRI_Aceh.png')}}" style="width:100px; padding-bottom:20px" alt=""></center>
 								<div class="form-group user-name-field">
 									<input required type="text" id="username" name="username" class="form-control" value="" placeholder="User name">
 									<div class="field-icon"><i class="ion-person"></i></div>
