@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Add Play List Program
+Add News
 @endsection
 
 @section('content')
@@ -15,27 +15,18 @@ Add Play List Program
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                        <a href="{{route('viewartikel')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
+                        <a href="{{route('viewnews')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
                 <center>
-                    <h5 style="margin-left:20px" class="m-0">Add Play List Program</h5>
+                    <h5 style="margin-left:20px" class="m-0">Add News</h5>
                 </center>
             </div>
             <div class="card-body">
-                <form action="{{route('saveartikel')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('savenews')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
-                        <label for="">Kategori</label>
-                        <select name="id_kategori" class="form-control" id="kategori">
-                            <option value="">-Select-</option>
-                            @foreach($kategori as $i => $a)
-                                <option value="{{$a->id_kategori}}">{{$a->kategori}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="">Judul</label>
-                        <input type="text" name="judul" id="judul" placeholder="Judul Artikel" required class="form-control">
+                        <input type="text" name="judul" id="judul" placeholder="Judul" required class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Image</label>

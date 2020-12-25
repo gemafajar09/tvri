@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Play List Program
+News
 @endsection
 
 @section('content')
@@ -15,10 +15,10 @@ Play List Program
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                    <h5 class="m-0">Play List Program</h5>
+                    <h5 class="m-0">News</h5>
                 </div>
                 <div class="float-right">
-                    <a href="{{route('addartikel')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
+                    <a href="{{route('addnews')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
             <div class="card-body">
@@ -27,7 +27,6 @@ Play List Program
                         <tr>
                             <th style="width:40px; text-align:center">No</th>
                             <th style="width:100px">Judul</th>
-                            <th style="width:100px">Kategori</th>
                             <th style="width:250px;">Description</th>
                             <th style="width:80px;">Foto</th>
                             <th style="width:60px; text-align:center">Action</th>
@@ -38,12 +37,11 @@ Play List Program
                         <tr>
                             <td>{{$i+1}}</td>
                             <td>{{$a->judul}}</td>
-                            <td>{{$a->kategori}}</td>
-                            <td>{{$a->descripsi}}</td>
-                            <td><img src="{{asset('/artikel/'.$a->foto)}}" style="width:120px; height:100px" alt=""></td>
+                            <td>{{$a->deskripsi}}</td>
+                            <td><img src="{{asset('/news/'.$a->foto)}}" style="width:120px; height:100px" alt=""></td>
                             <td style="text-align:center">
-                                <a href="{{route('editartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
-                                <a href="{{route('deleteartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="{{route('editnews',encrypt($a->id_news))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
+                                <a href="{{route('deletenews',encrypt($a->id_news))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

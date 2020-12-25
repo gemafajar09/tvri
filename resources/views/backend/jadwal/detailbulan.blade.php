@@ -15,23 +15,23 @@ Schedule
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                    <h5 class="m-0">Schedule</h5>
+                    <a href="{{route('schedule')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
-                <div class="float-right">
-                    <a href="{{route('addschedule')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
-                </div>
+                    <center>
+                        <h5 style="margin-left:20px" class="m-0">Schedule</h5>
+                    </center>
             </div>
             <div class="card-body">
                 <div class="row">
-                    @foreach($bulan as $a)
+                    @foreach($detail as $a)
                     <div class="col-md-3">
                         <div class="card card-success card-outline">
                             <div class="card-body">
                                 <div class="float-left">
-                                    <h5>{{bulantahun($a->filter)}}</h5>
+                                    <h5>{{tanggal_indonesia($a->tanggal)}}</h5>
                                 </div>
                                 <div class="float-right">
-                                    <a href="{{route('detailbulan',encrypt($a->filter))}}" class="btn btn-outline-primary btn-sm">Show</a>
+                                    <a href="{{route('detailhari',encrypt($a->tanggal))}}" class="btn btn-outline-primary btn-sm">Show</a>
                                 </div>
                             </div>
                         </div>

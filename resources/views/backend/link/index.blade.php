@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Play List Program
+Link Streaming
 @endsection
 
 @section('content')
@@ -15,10 +15,7 @@ Play List Program
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                    <h5 class="m-0">Play List Program</h5>
-                </div>
-                <div class="float-right">
-                    <a href="{{route('addartikel')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
+                    <h5 class="m-0">Link Streaming</h5>
                 </div>
             </div>
             <div class="card-body">
@@ -26,33 +23,45 @@ Play List Program
                     <thead>
                         <tr>
                             <th style="width:40px; text-align:center">No</th>
-                            <th style="width:100px">Judul</th>
-                            <th style="width:100px">Kategori</th>
-                            <th style="width:250px;">Description</th>
-                            <th style="width:80px;">Foto</th>
+                            <th style="width:200px">Link</th>
                             <th style="width:60px; text-align:center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $i => $a)
                         <tr>
-                            <td>{{$i+1}}</td>
-                            <td>{{$a->judul}}</td>
-                            <td>{{$a->kategori}}</td>
-                            <td>{{$a->descripsi}}</td>
-                            <td><img src="{{asset('/artikel/'.$a->foto)}}" style="width:120px; height:100px" alt=""></td>
+                            <td style="width:40px; text-align:center">1</td>
+                            <td>{{$data->link}}</td>
                             <td style="text-align:center">
-                                <a href="{{route('editartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
-                                <a href="{{route('deleteartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <button type="button" onclick="tampil('<?= $data->id_link ?>','<?= $data->link ?>')" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></button>
                             </td>
                         </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" id="linkedit" style="background-color:transparent">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="{{ route('uplink')}}" method="POST">
+              @csrf
+              <input type="hidden" id="id_link" name="id_link">
+              <div class="form-group">
+                  <label for="">Link</label>
+                  <input type="text" class="form-control" name="link" id="link">
+              </div>
+              <div class="float-right">
+                  <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @if (session('validasi'))
 	<script>
 		$('#error').show();
@@ -65,4 +74,11 @@ Play List Program
 		setInterval(function(){ $('#success').hide(); }, 5000);
 	</script>
 @endif
+<script>
+    function tampil(id,link){
+        $('#id_link').val(id);
+        $('#link').val(link);
+        $('#linkedit').modal()
+    }
+</script>
 @endsection

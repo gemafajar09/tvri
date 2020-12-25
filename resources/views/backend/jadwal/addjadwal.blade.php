@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Add Artikel
+Add Schedule
 @endsection
 
 @section('content')
@@ -15,26 +15,37 @@ Add Artikel
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                        <a href="{{route('viewartikel')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
+                        <a href="{{route('schedule')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
                 <center>
-                    <h5 style="margin-left:20px" class="m-0">Add Artikel</h5>
+                    <h5 style="margin-left:20px" class="m-0">Add Schedule</h5>
                 </center>
             </div>
             <div class="card-body">
-                <form action="{{route('saveartikel')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('saveschedule')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                    <div class="form-group">
-                        <label for="">Judul Artikel</label>
-                        <input type="text" name="judul" id="judul" placeholder="Judul Artikel" required class="form-control">
+                <div class="d-flex justify-content-center">
+                    <div class="form-inline">
+                        <label class="mx-2" for="">Tanggal Tayang</label>&nbsp;
+                        <input type="date" name="tanggal" style="width:" class="form-control" id="">
+                        <button type="button" class="btn btn-primary mx-5" id="addrow"><i class="fa fa-plus"></i></button>
                     </div>
-                    <div class="form-group">
-                        <label for="">Image</label>
-                        <input type="file" name="image" id="image" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" required class="form-control"></textarea>
+                </div>
+                    <div class="row py-2" id="row_add">
+                        <div class="col-md-3">
+                            <div class="card card-danger card-outline">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="">Jam Tayang</label>
+                                        <input type="text" name="jam[]" class="form-control" required placeholder="EXAMPLE:08.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nama Program Acara</label>
+                                        <input type="text" name="program[]" class="form-control" required placeholder="Program Acara">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>
@@ -57,4 +68,11 @@ Add Artikel
 		setInterval(function(){ $('#success').hide(); }, 5000);
 	</script>
 @endif
+
+<script>
+    $('#addrow').click(function(){
+        var body = "<div id='rm' class='rm col-md-3'><div class='card card-danger card-outline'><div class='card-body'><div class='form-group'><label for=''>Jam Tayang</label><input type='text' name='jam[]' class='form-control' required placeholder='EXAMPLE:08.00'></div><div class='form-group'><label for=''>Nama Program Acara</label><input type='text' name='program[]' class='form-control' required placeholder='Program Acara'></div></div></div></div>"
+        $('#row_add').append(body);
+    })
+</script>
 @endsection
