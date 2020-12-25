@@ -16,6 +16,7 @@ class CreateArtikelModelsTable extends Migration
         Schema::create('tb_artikel', function (Blueprint $table) {
             $table->id('id_artikel');
             $table->date('tanggal_artikel');
+            $table->integer('id_kategori');
             $table->string('judul',100);
             $table->string('foto',255);
             $table->text('descripsi');

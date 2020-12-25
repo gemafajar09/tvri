@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalModelsTable extends Migration
+class CreateLinkModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateJadwalModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_jadwal', function (Blueprint $table) {
-            $table->id('id_jadwal');
-            $table->date('tanggal');
-            $table->string('jam',5);
-            $table->string('nama_acara',255);
-            $table->string('filter',20);
+        Schema::create('tb_link', function (Blueprint $table) {
+            $table->id('id_link');
+            $table->string('link',255);
         });
     }
 
@@ -29,6 +26,6 @@ class CreateJadwalModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_jadwal');
+        Schema::dropIfExists('tb_link');
     }
 }

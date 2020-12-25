@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Play List Program
+Schedule
 @endsection
 
 @section('content')
@@ -15,35 +15,32 @@ Play List Program
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                    <h5 class="m-0">Play List Program</h5>
+                    <a href="{{route('schedule')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
-                <div class="float-right">
-                    <a href="{{route('addartikel')}}" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></a>
-                </div>
+                    <center>
+                        <h5 style="margin-left:20px" class="m-0">Schedule</h5>
+                    </center>
             </div>
             <div class="card-body">
                 <table id="example1" class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width:40px; text-align:center">No</th>
-                            <th style="width:100px">Judul</th>
-                            <th style="width:100px">Kategori</th>
-                            <th style="width:250px;">Description</th>
-                            <th style="width:80px;">Foto</th>
+                            <th style="width:10px; text-align:center">No</th>
+                            <th style="width:50px">Tanggal Tayang</th>
+                            <th style="width:50px">Jam Tayang</th>
+                            <th style="width:100px">Program Acara</th>
                             <th style="width:60px; text-align:center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $i => $a)
+                        @foreach($hari as $i => $a)
                         <tr>
-                            <td>{{$i+1}}</td>
-                            <td>{{$a->judul}}</td>
-                            <td>{{$a->kategori}}</td>
-                            <td>{{$a->descripsi}}</td>
-                            <td><img src="{{asset('/artikel/'.$a->foto)}}" style="width:120px; height:100px" alt=""></td>
-                            <td style="text-align:center">
-                                <a href="{{route('editartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
-                                <a href="{{route('deleteartikel',encrypt($a->id_artikel))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <td style="text-align:center">{{$i+1}}</td>
+                            <td>{{tanggal_indonesia($a->tanggal)}}</td>
+                            <td>{{$a->jam}}</td>
+                            <td>{{$a->nama_acara}}</td><td style="text-align:center">
+                                <a href="" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>
+                                <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

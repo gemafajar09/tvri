@@ -33,9 +33,9 @@
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{route('home')}}" class="brand-link">
-      <img src="{{asset('/image/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('/image/TVRI_Aceh.png')}}" alt="AdminLTE Logo" class="brand-image img-circle"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">TVRI</span>
+      <span class="brand-text font-weight-light">TVRI Aceh</span>
     </a>
 
     <div class="sidebar">
@@ -75,7 +75,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('link')}}" class="nav-link">
               <i class="nav-icon fas fa-link"></i>
               <p>
                 Link Sreaming
@@ -83,7 +83,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('schedule')}}" class="nav-link">
               <i class="nav-icon fas fa-desktop"></i>
               <p>
                 Schedule
@@ -95,6 +95,14 @@
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Tentang kami
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('viewnews')}}" class="nav-link">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>
+                News
               </p>
             </a>
           </li>

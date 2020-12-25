@@ -1,6 +1,6 @@
 @extends('backend.template')
 @section('title')
-Add Play List Program
+Edit News
 @endsection
 
 @section('content')
@@ -15,39 +15,32 @@ Add Play List Program
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="float-left">
-                        <a href="{{route('viewartikel')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
+                        <a href="{{route('viewnews')}}" class="btn btn-round btn-sm btn-outline-danger"><i class="fas fa-backspace"></i></a>
                 </div>
                 <center>
-                    <h5 style="margin-left:20px" class="m-0">Add Play List Program</h5>
+                    <h5 style="margin-left:20px" class="m-0">Edit News</h5>
                 </center>
             </div>
             <div class="card-body">
-                <form action="{{route('saveartikel')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('updatenews')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                    <input type="hidden" name="id_news" value="{{$data->id_news}}">
                     <div class="form-group">
-                        <label for="">Kategori</label>
-                        <select name="id_kategori" class="form-control" id="kategori">
-                            <option value="">-Select-</option>
-                            @foreach($kategori as $i => $a)
-                                <option value="{{$a->id_kategori}}">{{$a->kategori}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Judul</label>
-                        <input type="text" name="judul" id="judul" placeholder="Judul Artikel" required class="form-control">
+                        <label for="">Judul news</label>
+                        <input type="text" name="judul" id="judul" value="{{$data->judul}}" required class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Image</label>
-                        <input type="file" name="image" id="image" required class="form-control">
+                        <input type="file" name="image" id="image" class="form-control">
+                        <i style="color:red">File : <a style="color:black" href="{{asset('/news/'.$data->foto)}}">{{$data->foto}}</a></i>
                     </div>
                     <div class="form-group">
                         <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" required class="form-control"></textarea>
+                        <textarea name="deskripsi" id="" class="form-control">{{$data->deskripsi}}</textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>
-                        <button style="width:200px" type="submit" class="btn btn-outline-primary">Save</button>
+                        <button style="width:200px" type="submit" class="btn btn-outline-primary">Update</button>
                     </div>
                 </form>
             </div>

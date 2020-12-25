@@ -21,13 +21,14 @@ class ArtikelController extends Controller
 
     public function index()
     {
-        $data = DB::table('tb_artikel')->get();
+        $data = DB::table('tb_artikel')->join('tb_kategori','tb_artikel.id_kategori','tb_kategori.id_kategori')->get();
         return view('backend.artikel.index',compact('data'));
     }
 
     public function addartikel()
     {
-        return view('backend.artikel.addartikel');
+        $data['kategori'] = DB::table('tb_kategori')->get();
+        return view('backend.artikel.addartikel',$data);
     }
 
     public function save(Request $r)
@@ -42,6 +43,7 @@ class ArtikelController extends Controller
             $input = new ArtikelModel;
             $input->tanggal_artikel = date("Y-m-d");
             $input->judul = $r->judul; 
+            $input->id_kategori = $r->id_kategori;
             $input->foto = $filename;
             $input->descripsi = $r->deskripsi;
             $input->save();
@@ -67,8 +69,9 @@ class ArtikelController extends Controller
     public function getdata($ids)
     {
         $id = decrypt($ids);
-        $data = DB::table('tb_artikel')->where('id_artikel',$id)->first();
-        return view('backend.artikel.editartikel',compact('data'));
+        $data['data'] = DB::table('tb_artikel')->where('id_artikel',$id)->first();
+        $data['kategori'] = DB::table('tb_kategori')->get();
+        return view('backend.artikel.editartikel',$data);
     }
 
     public function update(Request $r)
@@ -86,7 +89,7 @@ class ArtikelController extends Controller
                 $filename = $r->image->getClientOriginalName();
                 $r->file('image')->move('artikel',$r->image->getClientOriginalName());
                 $up = DB::tbale('tb_artikel')->where('id_artikel',$r->id_artikel)->update([
-                    'judul_artikel' => $r->judul, 'foto' => $filename, 'descripsi' => $r->deskripsi]);
+                    'judul_artikel' => $r->judul, 'id_kategori' => $r->id_kategori,'foto' => $filename, 'descripsi' => $r->deskripsi]);
             }
 
             if($up == TRUE){

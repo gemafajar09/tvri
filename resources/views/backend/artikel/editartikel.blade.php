@@ -26,6 +26,15 @@ Edit Play List Program
                 @csrf
                     <input type="hidden" name="id_artikel" value="{{$data->id_artikel}}">
                     <div class="form-group">
+                        <label for="">Kategori</label>
+                        <select name="kategori" class="form-control" id="kategori">
+                            <option value="">-Select-</option>
+                            @foreach($kategori as $i => $a)
+                                <option value="{{$a->id_kategori}}">{{$a->kategori}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="">Judul Artikel</label>
                         <input type="text" name="judul" id="judul" value="{{$data->judul}}" required class="form-control">
                     </div>
@@ -59,4 +68,7 @@ Edit Play List Program
 		setInterval(function(){ $('#success').hide(); }, 5000);
 	</script>
 @endif
+<script>
+    $('#kategori').val("{{$data->id_kategori}}");
+</script>
 @endsection
