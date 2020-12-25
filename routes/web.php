@@ -10,6 +10,8 @@ Route::get('/index', 'FrontendController@index')->name('index');
 Route::get('/tampildetail/{id}', 'NewsController@tampildetail')->name('detailberita');
 Route::get('/showartikel', 'NewsController@showall')->name('showartikel');
 Route::get('/live', 'LinkController@live')->name('live');
+Route::get('/schedulelist', 'JadwalController@showjadwal')->name('schedulelist');
+Route::post('/schedulesearch', 'JadwalController@searchjadwal')->name('schedulesearch');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');

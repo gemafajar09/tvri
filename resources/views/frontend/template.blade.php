@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
+  <link href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
@@ -24,14 +24,18 @@
   <link href="{{asset('/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/aos/aos.css')}}" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <link href="{{asset('/assets/css/loading.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/css/style.css')}}" rel="stylesheet">
 
 </head>
 
 <body>
+  <div class="preloader">
+    <div class="loading">
+      <img src="{{asset('/loading/load.gif')}}" alt="">
+    </div>
+  </div>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
     <div class="container d-flex align-items-center">
 
@@ -42,7 +46,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class=""><a href="{{route('index')}}">Home</a></li>
-          <li><a href="{{route('live')}}">Live</a></li>
+          <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
           <li class="drop-down"><a href="">Kategories</a>
             <ul>
               <?php
@@ -53,15 +57,15 @@
               @endforeach
             </ul>
           </li>
-          <li><a href="#pricing">Schedule</a></li>
+          <li><a href="{{route('schedulelist')}}">Schedule</a></li>
           <li><a href="{{route('showartikel')}}">Artikel</a></li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
     @yield('content')
 
@@ -80,12 +84,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Mediatama Web</span></strong>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/selecao-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -101,9 +100,23 @@
   <script src="{{asset('/assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/aos/aos.js')}}"></script>
+  <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="{{asset('/assets/js/main.js')}}"></script>
+  <script>
+    $(document).ready(function(){
+      // setInterval(function(){$(".preloader").fadeOut(); },2000)
+      $(".preloader").fadeOut();
+      
+    })
+
+    setInterval(function(){ 
+      $('#live').fadeOut();
+      $('#live').fadeIn();  
+    }, 1000);
+  </script>
 
 </body>
 

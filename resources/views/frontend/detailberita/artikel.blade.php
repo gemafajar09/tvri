@@ -4,8 +4,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row" data-aos="zoom-out" style="margin-top:80px;padding-bottom:20px">
+<div class="container" style="margin-top:80px;padding-bottom:20px">
+    <div class="row" data-aos="zoom-out">
         @foreach($show as $key => $a)
         <div class="col-md-3 mx-2">
             <div class="card" style="width: 18rem;">
