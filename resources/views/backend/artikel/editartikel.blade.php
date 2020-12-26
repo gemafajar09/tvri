@@ -45,7 +45,7 @@ Edit Play List Program
                     </div>
                     <div class="form-group">
                         <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" class="form-control">{{$data->descripsi}}</textarea>
+                        <textarea name="deskripsi" id="" class="form-control ckeditor">{{$data->descripsi}}</textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>

@@ -67,7 +67,7 @@ class KategoriController extends Controller
             return back()->with('validasi','Pastikan Format Terisi Dengan Benar.');
         }else{
             $up = DB::table('tb_kategori')->where('id_kategori',$r->id_kategori)->update([
-                'descripsi' => $r->deskripsi
+                'kategori' => $r->kategori
             ]);
 
             if($up == TRUE){

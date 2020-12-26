@@ -36,7 +36,7 @@ Edit News
                     </div>
                     <div class="form-group">
                         <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" class="form-control">{{$data->deskripsi}}</textarea>
+                        <textarea name="deskripsi ckeditor" id="" class="form-control">{{$data->deskripsi}}</textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>

@@ -94,11 +94,11 @@
             <div class="carousel-item {{ $i == 0 ? ' active' : ''  }}">
               <div class="row" data-aos="zoom-out">
                 <div class="col-lg-4 text-center text-lg-left">
-                  <img src="{{asset('/news/'.$news->foto)}}" width="100%" height="100%" alt="">
+                  <img src="{{asset('/news/'.$news->foto)}}" width="100%" height="200px" alt="">
                 </div>
                 <div class="col-lg-8 text-center text-lg-left">
-                  <h3>{{$news->judul}}</h3>
-                  <p>{{$news->deskripsi}}</p>
+                  <h3>{{substr($news->judul,0,100)}}</h3>
+                  <p><?= substr($news->deskripsi,0,300)?> ...</p>
                   <br>
                   <a class="cta-btn align-middle" href="{{route('detailberita',encrypt($news->id_news))}}">Show Detail</a>
                 </div>
@@ -131,7 +131,7 @@
           @foreach($programacara as $i => $program)
           <div class="testimonial-item" >
             <a href="{{route('programdetail',encrypt($program->id_artikel))}}">
-              <img src="{{asset('/artikel/'.$program->foto)}}" class="img-responsive" width="250px" height="200px" alt="">
+              <img src="{{asset('/artikel/'.$program->foto)}}" class="img-responsive" width="250px" height="300px" alt="">
             </a>
           </div>
           @endforeach
@@ -167,14 +167,14 @@
             <div style="margin-left:10px; margin:right:10px" class="testimonial-item">
               <div class="member" data-aos="fade-up">
                 <div class="member-img">
-                  <img src="{{asset('/artikel/'.$bagi->foto)}}" style="width:350px; height:200px" class="img-fluid" alt="">
+                  <img src="{{asset('/artikel/'.$bagi->foto)}}" style="width:350px; height:300px" class="img-fluid" alt="">
                   <div class="social">
                     <a href="{{route('programdetail',encrypt($bagi->id_artikel))}}"><i class="icofont-eye"></i></a>
                   </div>
                 </div>
                 <div class="member-info">
                   <h4>{{$bagi->judul}}</h4>
-                  <span>{{substr($bagi->descripsi, 0,20)}} ....</span>
+                  <span><?= substr($bagi->descripsi, 0,40)?> ....</span>
                 </div>
               </div>
             </div>

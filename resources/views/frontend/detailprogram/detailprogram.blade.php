@@ -13,9 +13,9 @@
             <center>
                 <h3>{{$artikel->judul}}</h3>
             </center>
-            <p style="word-wrap: break-word; padding-left:10%">
-                {{$artikel->descripsi}}
-            </p>
+            <div style="word-wrap: break-word; padding-left:10%">
+                <?= $artikel->descripsi?>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="card card-primary card-outline">
@@ -28,11 +28,11 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="{{asset('/news/'.$a->foto)}}" style="width:100%"  class="img-responsive" alt="">
+                                        <img src="{{asset('/artikel/'.$a->foto)}}" style="width:100%; height:100%"  class="img-responsive" alt="">
                                     </div>
                                     <div class="col-md-8">
                                         <h6><a href="{{route('programdetail',encrypt($a->id_artikel))}}">{{$a->judul}}</a></h6>
-                                        <p>{{substr($a->descripsi,0,20)}}&nbsp;....</p>
+                                        <p><?= substr($a->descripsi,0,20)?>&nbsp;....</p>
                                     </div>
                                 </div>
                             </div>
