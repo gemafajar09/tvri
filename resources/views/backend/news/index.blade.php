@@ -37,7 +37,7 @@ News
                         <tr>
                             <td>{{$i+1}}</td>
                             <td>{{$a->judul}}</td>
-                            <td>{{$a->deskripsi}}</td>
+                            <td><?= substr($a->deskripsi,0,200) ?></td>
                             <td><img src="{{asset('/news/'.$a->foto)}}" style="width:120px; height:100px" alt=""></td>
                             <td style="text-align:center">
                                 <a href="{{route('editnews',encrypt($a->id_news))}}" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>

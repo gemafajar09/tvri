@@ -43,7 +43,7 @@ Add Play List Program
                     </div>
                     <div class="form-group">
                         <label for="">Deskription</label>
-                        <textarea name="deskripsi" id="" required class="form-control"></textarea>
+                        <textarea name="deskripsi" id="" required class="form-control ckeditor"></textarea>
                     </div>
                     <div class="float-right">
                         <button style="width:200px" type="reset" class="btn btn-outline-success">Reset</button>
