@@ -12,6 +12,8 @@ Route::get('/showartikel', 'NewsController@showall')->name('showartikel');
 Route::get('/live', 'LinkController@live')->name('live');
 Route::get('/schedulelist', 'JadwalController@showjadwal')->name('schedulelist');
 Route::post('/schedulesearch', 'JadwalController@searchjadwal')->name('schedulesearch');
+Route::get('/showprogram/{id}', 'ArtikelController@showdetail')->name('showprogram');
+Route::get('/programdetail/{id}', 'ArtikelController@tampildetail')->name('programdetail');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');

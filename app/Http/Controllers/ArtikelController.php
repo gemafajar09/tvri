@@ -99,4 +99,20 @@ class ArtikelController extends Controller
             }
         }
     }
+
+    // frontend
+    public function showdetail($ids)
+    {
+        $id = decrypt($ids);
+        $data['detail'] = DB::table('tb_artikel')->where('id_kategori',$id)->get();
+        return view('frontend.detailprogram.index',$data);
+    }
+
+    public function tampildetail($ids)
+    {
+        $id = decrypt($ids);
+        $data['artikel'] = DB::table('tb_artikel')->where('id_artikel',$id)->first();
+        $data['lainnya'] = DB::table('tb_artikel')->get();
+        return view('frontend.detailprogram.detailprogram',$data);
+    }
 }
