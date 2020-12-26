@@ -46,20 +46,20 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class=""><a href="{{route('index')}}">Home</a></li>
-          <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
+          <li id="live" class="active"><a href="{{route('live')}}">Live Streaming</a></li>
           <li class="drop-down"><a href="">Kategories</a>
             <ul>
               <?php
                 $datamenu = DB::table('tb_kategori')->get();
               ?>
               @foreach($datamenu as $i => $kat)
-              <li><a href="#">{{$kat->kategori}}</a></li>
+                <li><a href="{{route('showprogram',encrypt($kat->id_kategori))}}">{{$kat->kategori}}</a></li>
               @endforeach
             </ul>
           </li>
           <li><a href="{{route('schedulelist')}}">Schedule</a></li>
           <li><a href="{{route('showartikel')}}">Artikel</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Tentang Kami</a></li>
 
         </ul>
       </nav>
@@ -72,19 +72,23 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>TVRI Aceh</h3>
-      {{-- <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p> --}}
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>TVRI Aceh</h3>
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2037402.2035230293!2d95.46551408082419!3d4.161073397935724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd339312534ff3a36!2sTVRI%20Aceh!5e0!3m2!1sid!2sid!4v1608967967091!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>Mediatama Web</span></strong>
-      </div>
-      <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->

@@ -83,7 +83,10 @@
       </div>
     </section>
 
-    <section id="cta" class="cta" style="padding-top:5px; padding-bottom:5px">
+    <div style="text-align:center" data-aos="zoom-out">
+      <h2>News</h2>
+    </div>
+    <section id="" class="" style="padding-top:5px; padding-bottom:5px">
       <div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -99,9 +102,7 @@
                   <br>
                   <a class="cta-btn align-middle" href="{{route('detailberita',encrypt($news->id_news))}}">Show Detail</a>
                 </div>
-                {{-- <div class="col-lg-2 cta-btn-container text-center">
-                  
-                </div> --}}
+                {{-- class dan id cta --}}
               </div>
             </div>
             @endforeach
@@ -119,7 +120,6 @@
 
     </section>
 
-    <!-- ======= Program Acara ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container">
 
@@ -130,7 +130,7 @@
         <div class="owl-carousel testimonials-carousel" data-aos="fade-up">
           @foreach($programacara as $i => $program)
           <div class="testimonial-item" >
-            <a href="">
+            <a href="{{route('programdetail',encrypt($program->id_artikel))}}">
               <img src="{{asset('/artikel/'.$program->foto)}}" class="img-responsive" width="250px" height="200px" alt="">
             </a>
           </div>
@@ -139,9 +139,7 @@
 
       </div>
     </section>
-    <!-- End Program Acara -->
 
-    <!-- ======= Instagram ======= -->
     <section data-aos="fade-up" id="testimonials" class="testimonials">
       <div class="container">
 
@@ -150,14 +148,11 @@
         </div>
 
         <!-- SnapWidget -->
-        <!-- SnapWidget -->
-        <iframe src="https://snapwidget.com/embed/901219" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:800px"></iframe>
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/f9a1f69d0a195039b5f812ca100e0c31.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 
       </div>
     </section>
-    <!-- End Program Acara -->
 
-    <!-- ======= Kategori Program ======= -->
     <center><h3>Kategori Program Acara</h3></center>
     <section id="team" class="team">
       <div class="container">
@@ -174,7 +169,7 @@
                 <div class="member-img">
                   <img src="{{asset('/artikel/'.$bagi->foto)}}" style="width:350px; height:200px" class="img-fluid" alt="">
                   <div class="social">
-                    <a href=""><i class="icofont-eye"></i></a>
+                    <a href="{{route('programdetail',encrypt($bagi->id_artikel))}}"><i class="icofont-eye"></i></a>
                   </div>
                 </div>
                 <div class="member-info">
@@ -189,7 +184,7 @@
 
         @endforeach
       </div>
-    </section><!-- Kategori Program -->
+    </section>
 
-  </main><!-- End #main -->
+  </main>
 @endsection

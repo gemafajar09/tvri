@@ -1543,10 +1543,9 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #14151c;
+  background: rgba(42, 44, 57, 0.9);;
   color: #fff;
   font-size: 14px;
-  text-align: center;
   padding: 30px 0;
 }
 
