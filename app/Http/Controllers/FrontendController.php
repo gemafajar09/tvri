@@ -18,4 +18,17 @@ class FrontendController extends Controller
         $data['kategori'] = DB::table('tb_kategori')->get();
         return view('frontend.home',$data);
     }
+
+    public function statistik()
+    {
+        $sekarang = date('Y-m-d');
+        $kemarin = date('Y-m-d', strtotime("-1 day", strtotime(date("Y-m-d"))));
+        $data1 = DB::table('tb_statistik')->select(DB::raw('COUNT(*) as sekarang'))->where('tanggal',$sekarang)->first();
+        $data2 = DB::table('tb_statistik')->select(DB::raw('COUNT(*) as kemarin'))->where('tanggal',$kemarin)->first();
+        $data = array(
+            'sekarang' => $data1->sekarang,
+            'kemarin' => $data2->kemarin
+        );
+        echo json_encode($data);
+    }
 }

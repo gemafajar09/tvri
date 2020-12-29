@@ -35,7 +35,18 @@
       <img src="{{asset('/loading/load.gif')}}" alt="">
     </div>
   </div>
-
+  <?php
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $tanggal = date("Ymd");
+    $cek = DB::table('tb_statistik')->where('ip',$ip)->where('tanggal',$tanggal)->first();
+    if($cek == TRUE)
+    {
+      DB::table('tb_statistik')->where('ip',$ip)->update(['klik' => $cek->klik +1]);
+    }else{
+      DB::table('tb_statistik')->insert(['ip' => $ip,'tanggal' => $tanggal,'klik'=> 1]);
+    }
+  ?>
+  {{-- ip --}}
   <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
     <div class="container d-flex align-items-center">
 
@@ -82,6 +93,22 @@
             <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
           </div>
+          <div>
+            <h5>Kunjungan Hari Ini</h5>
+            <br>
+            <div class="form-inline">
+              <div class="mx-5" style="text-align:center">
+                <i style="font-size:22px; color:white" class="fas fa-globe-europe"></i>
+                <label for="" id="kemarin"></label>
+                <label for="">Kemarin</label>
+              </div>
+              <div class="mx-5" style="text-align:center">
+                <i style="font-size:22px; color:green" class="fas fa-globe-europe"></i>
+                <label for="" id="sekarang"></label>
+                <label for="">Sekarang</label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-8">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2037402.2035230293!2d95.46551408082419!3d4.161073397935724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd339312534ff3a36!2sTVRI%20Aceh!5e0!3m2!1sid!2sid!4v1608967967091!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -104,7 +131,6 @@
   <script src="{{asset('/assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/aos/aos.js')}}"></script>
-  <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
 
 
   <!-- Template Main JS File -->
@@ -115,6 +141,20 @@
       $(".preloader").fadeOut();
       
     })
+    setInterval(function(){ pengunjung() },2000)
+
+    function pengunjung(){
+      $.ajax({
+        url: "{{route('statistik')}}",
+        type: "GET",
+        dataType: "json",
+        success: function(data){
+          console.log(data.sekarang)
+          $('#sekarang').html(data.sekarang)
+          $('#kemarin').html(data.kemarin)
+        }
+      })
+    }
 
     setInterval(function(){ 
       $('#live').fadeOut();
