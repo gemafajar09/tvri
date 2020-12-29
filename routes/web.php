@@ -14,6 +14,7 @@ Route::get('/schedulelist', 'JadwalController@showjadwal')->name('schedulelist')
 Route::post('/schedulesearch', 'JadwalController@searchjadwal')->name('schedulesearch');
 Route::get('/showprogram/{id}', 'ArtikelController@showdetail')->name('showprogram');
 Route::get('/programdetail/{id}', 'ArtikelController@tampildetail')->name('programdetail');
+Route::get('/statistik', 'FrontendController@statistik')->name('statistik');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');

@@ -335,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-#hero .carousel-container {
+/* #hero .carousel-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   height: 70vh;
   padding-top: 60px;
-}
+} */
 
 #hero h2 {
   color: #fff;
@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-#hero .carousel-control-prev, #hero .carousel-control-next {
+/* #hero .carousel-control-prev, #hero .carousel-control-next {
   width: 10%;
 }
 
@@ -371,7 +371,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   width: auto;
   height: auto;
-}
+} */
 
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
@@ -396,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   #hero p {
     width: 60%;
   }
@@ -412,7 +412,7 @@ h1, h2, h3, h4, h5, h6 {
   #hero h2 {
     font-size: 28px;
   }
-}
+} */
 
 .hero-waves {
   display: block;
