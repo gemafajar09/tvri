@@ -111,8 +111,10 @@ class ArtikelController extends Controller
     public function tampildetail($ids)
     {
         $id = decrypt($ids);
+        $cek = DB::table('tb_artikel')->where('id_artikel',$id)->first();
         $data['artikel'] = DB::table('tb_artikel')->where('id_artikel',$id)->first();
-        $data['lainnya'] = DB::table('tb_artikel')->get();
+        $data['lainnya'] = DB::table('tb_artikel')->limit(4)->get();
+        $data['lainnya1'] = DB::table('tb_artikel')->where('id_kategori',$cek->id_kategori)->limit(4)->get();
         return view('frontend.detailprogram.detailprogram',$data);
     }
 }

@@ -100,8 +100,10 @@ class NewsController extends Controller
     public function tampildetail($ids)
     {
         $id = decrypt($ids);
+        $cek = DB::table('tb_news')->where('id_news',$id)->first();
         $data['news'] = DB::table('tb_news')->where('id_news',$id)->first();
-        $data['lainnya'] = DB::table('tb_news')->get();
+        $data['lainnya'] = DB::table('tb_news')->limit(4)->get();
+        $data['lainnya1'] = DB::table('tb_news')->limit(8)->get();
         return view('frontend.detailberita.index',$data);
     }
 

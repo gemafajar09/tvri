@@ -44,6 +44,19 @@ class JadwalController extends Controller
         return redirect('schedule')->with('pesan','Input Data Success');
     }
 
+    public function edit(Request $r)
+    {
+        $update = DB::table('tb_jadwal')->where('id_jadwal',$r->id_jadwal)->update([
+            'jam' => $r->jam,
+            'nama_acara' => $r->program
+        ]);
+        if($update == TRUE){
+            return back()->with('pesan', 'Update Berhasil');
+        }else{
+            return back()->with('pesan', 'Update Gagal');
+        }
+    }
+
     public function detailbulan($id)
     {
         $filter = decrypt($id);
