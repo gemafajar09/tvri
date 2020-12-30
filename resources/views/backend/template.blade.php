@@ -92,7 +92,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('tentangkami')}}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Tentang kami
@@ -104,14 +104,6 @@
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 News
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-chart-bar"></i>
-              <p>
-                Pengunjung
               </p>
             </a>
           </li>

@@ -15,6 +15,7 @@ Route::post('/schedulesearch', 'JadwalController@searchjadwal')->name('schedules
 Route::get('/showprogram/{id}', 'ArtikelController@showdetail')->name('showprogram');
 Route::get('/programdetail/{id}', 'ArtikelController@tampildetail')->name('programdetail');
 Route::get('/statistik', 'FrontendController@statistik')->name('statistik');
+Route::get('/tentang_kami', 'TentangController@tentangkami')->name('tentang_kami');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');
@@ -64,3 +65,11 @@ Route::get('/addschedule', 'JadwalController@addschedule')->name('addschedule');
 Route::post('/saveschedule', 'JadwalController@save')->name('saveschedule');
 Route::get('/detailbulan/{bulan}','JadwalController@detailbulan')->name('detailbulan');
 Route::get('/detailhari/{hari}','JadwalController@detailhari')->name('detailhari');
+Route::post('/editschedule', 'JadwalController@edit')->name('editschedule');
+
+// tentang kami
+Route::get('/tentangkami', 'TentangController@index')->name('tentangkami');
+Route::get('/addinfo', 'TentangController@add')->name('addinfo');
+Route::get('/editinfo/{id}', 'TentangController@edit')->name('editinfo');
+Route::post('/saveinfo', 'TentangController@saveedit')->name('saveinfo');
+Route::get('/deleteinfo/{id}', 'TentangController@delete')->name('deleteinfo');

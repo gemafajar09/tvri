@@ -1,22 +1,6 @@
 @extends('frontend.template')
 @section('content')
 
-{{-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> --}}
-
   <section>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -38,7 +22,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    
 
   </section>
 
@@ -60,7 +43,7 @@
               <h2 style="color:#2533cc">Schedule</h2>
               {{-- <p>Who we are</p> --}}
             </div>
-            <div data-aos="zoom-in-left" style="overflow-y: scroll;height:355px;background: linear-gradient(to right, #000046, #1cb5e0);" class="card" height="355">
+            <div data-aos="zoom-in-left" style="overflow-y: scroll;height:355px;background: linear-gradient(to right, #3399ff 5%, #000099 100%);" class="card" height="355">
               <table style="color:white;" class="table table-striped">
                   <tr>
                     <th colspan="2" style="text-align:right">
@@ -145,8 +128,7 @@
           <h2 style="color:#2533cc">Instagram</h2>
         </div>
 
-        <!-- SnapWidget -->
-        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/f9a1f69d0a195039b5f812ca100e0c31.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/a431e4a01053535aab0dafb6503e6f13.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 
       </div>
     </section>

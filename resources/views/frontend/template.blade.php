@@ -9,10 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
@@ -70,7 +68,7 @@
           </li>
           <li><a href="{{route('schedulelist')}}">Schedule</a></li>
           <li><a href="{{route('showartikel')}}">Artikel</a></li>
-          <li><a href="#contact">Tentang Kami</a></li>
+          <li><a href="{{route('tentang_kami')}}">Tentang Kami</a></li>
 
         </ul>
       </nav>
@@ -80,7 +78,6 @@
 
     @yield('content')
 
-  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <div class="row">
@@ -118,11 +115,10 @@
         &copy; Copyright <strong><span>Mediatama Web</span></strong>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
-  <!-- Vendor JS Files -->
   <script src="{{asset('/assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
@@ -131,9 +127,8 @@
   <script src="{{asset('/assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/aos/aos.js')}}"></script>
+  <script type='text/javascript' src='//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
 
-
-  <!-- Template Main JS File -->
   <script src="{{asset('/assets/js/main.js')}}"></script>
   <script>
     $(document).ready(function(){
@@ -160,6 +155,14 @@
       $('#live').fadeOut();
       $('#live').fadeIn();  
     }, 1000);
+
+    $('.marquee').marquee({
+        duration: 16000,
+        gap: 0,
+        delayBeforeStart: 0,
+        direction: 'left',
+        duplicated: true,
+    });
   </script>
 
 </body>
