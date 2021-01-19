@@ -76,15 +76,15 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: linear-gradient(to right, #3399ff 5%, #000099 100%);
+  background: linear-gradient(to top, #131f37, #192d50);
 }
 
 #header.header-transparent {
-  background: linear-gradient(to right, #3399ff 5%, #000099 100%);
+  background: linear-gradient(to top, #131f37, #192d50);
 }
 
 #header.header-scrolled {
-  background: linear-gradient(to right, #3399ff 5%, #000099 100%);
+  background: linear-gradient(to top, #131f37, #192d50);
 }
 
 #header .logo h1 {
@@ -1547,7 +1547,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: rgba(42, 44, 57, 0.9);;
+  background: linear-gradient(to top, #131f37, #192d50);
   color: #fff;
   font-size: 14px;
   padding: 30px 0;

@@ -15,7 +15,8 @@ Route::post('/schedulesearch', 'JadwalController@searchjadwal')->name('schedules
 Route::get('/showprogram/{id}', 'ArtikelController@showdetail')->name('showprogram');
 Route::get('/programdetail/{id}', 'ArtikelController@tampildetail')->name('programdetail');
 Route::get('/statistik', 'FrontendController@statistik')->name('statistik');
-Route::get('/tentang_kami', 'TentangController@tentangkami')->name('tentang_kami');
+Route::get('/tentang_kami/{id}', 'TentangController@tentangkami')->name('tentang_kami');
+Route::get('/gallery-home', 'GaleryController@gallery')->name('gallerys');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');
@@ -73,3 +74,18 @@ Route::get('/addinfo', 'TentangController@add')->name('addinfo');
 Route::get('/editinfo/{id}', 'TentangController@edit')->name('editinfo');
 Route::post('/saveinfo', 'TentangController@saveedit')->name('saveinfo');
 Route::get('/deleteinfo/{id}', 'TentangController@delete')->name('deleteinfo');
+
+// gallery
+Route::get('/gallerys', 'GaleryController@index')->name('gallery');
+Route::post('/savegallery', 'GaleryController@save')->name('savegallery');
+Route::get('/deletegallery/{id}', 'GaleryController@deletes')->name('deletegallery');
+
+// tautan
+Route::get('/linklainya', 'TautanController@index')->name('linklainya');
+Route::post('/linklainyasave', 'TautanController@save')->name('linklainyasave');
+Route::get('/linklainyadelete/{id}', 'TautanController@deletes')->name('linklainyadelete');
+
+// rate card
+Route::get('/ratecardindex','RateController@index')->name('ratecardindex');
+Route::post('/retecardsave', 'RateController@save')->name('retecardsave');
+Route::get('/retecarddelete/{id}', 'RateController@deletes')->name('retecarddelete');

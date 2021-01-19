@@ -33,6 +33,8 @@
                 </div>
                 @endforeach
             </div>
+            <br>
+            @include('frontend.instagram')
         </div>
         <div class="col-md-4">
             <div class="card card-primary card-outline  animate__animated">
