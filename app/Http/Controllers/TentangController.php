@@ -112,9 +112,10 @@ class TentangController extends Controller
     }
 
     // frontend
-    public function tentangkami()
+    public function tentangkami($ids)
     {
-        $data['detail'] = DB::table('tb_tentang')->get();
+        $id = decrypt($ids);
+        $data['detail'] = DB::table('tb_tentang')->where('id_tentang',$id)->get();
         return view('frontend.tentangkami.index',$data);
     }
 }

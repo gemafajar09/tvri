@@ -9,7 +9,7 @@
         @foreach($detail as $key => $a)
         <div class="col-md-12">
             <div class="section-title" data-aos="zoom-out">
-                <h2 style="color:#2533cc">{{$a->title}}</h2>
+                {{-- <h2 style="color:#2533cc">{{$a->title}}</h2> --}}
             </div>
             @if($a->type == 1)
                 <div>

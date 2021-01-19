@@ -87,7 +87,7 @@
             <a href="{{route('schedule')}}" class="nav-link">
               <i class="nav-icon fas fa-desktop"></i>
               <p>
-                Schedule
+                Acara TV
               </p>
             </a>
           </li>
@@ -100,10 +100,34 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route('ratecardindex')}}" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                Rate Card
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('viewnews')}}" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 News
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('gallery')}}" class="nav-link">
+              <i class="nav-icon fas fa-images"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('linklainya')}}" class="nav-link">
+              <i class="nav-icon fas fa-link"></i>
+              <p>
+                Link Lainya
               </p>
             </a>
           </li>

@@ -5,7 +5,10 @@
 
 @section('content')
 <div class="container" style="margin-top:80px;padding-bottom:20px">
-    <div class="row" data-aos="zoom-out">
+    <center>
+        <h3><b>PROGRAM ACARA</b></h3>
+    </center>
+    <div class="row" data-aos="zoom-out" style="margin-top:5%">
         @foreach($detail as $key => $a)
         <div class="col-md-3 mx-2">
             <div class="card" style="width: 18rem;">
@@ -19,5 +22,7 @@
         </div>
         @endforeach
     </div>
+    <br>
+    @include('frontend.instagram')
 </div>
 @endsection

@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="container" style="margin-top:80px;padding-bottom:20px">
-    <div class="row" data-aos="zoom-out">
+    <center>
+        <h3><b>JADWAL TV</b></h3>
+    </center>
+    <div class="row" data-aos="zoom-out" style="margin-top:5%">
         <div class="col-md-12" style="margin-bottom:30px">
             <form action="{{route('schedulesearch')}}" method="post" class="float-right">
                 @csrf
@@ -36,5 +39,7 @@
         </div>
         @endforeach
     </div>
+    <br>
+    @include('frontend.instagram')
 </div>
 @endsection
