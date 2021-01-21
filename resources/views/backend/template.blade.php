@@ -40,8 +40,8 @@
     </a>
 
     <div class="sidebar">
-
       <nav class="mt-2">
+        @if(session()->get('level') == 'Superadmin')
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item has-treeview menu-open">
             <a href="{{route('home')}}" class="nav-link active">
@@ -127,11 +127,106 @@
             <a href="{{ route('linklainya')}}" class="nav-link">
               <i class="nav-icon fas fa-link"></i>
               <p>
-                Link Lainya
+                Link Lainnya
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('viewuser')}}" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                User
               </p>
             </a>
           </li>
         </ul>
+        @elseif(session()->get('level') == 'Acara')
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview menu-open">
+            <a href="{{route('home')}}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('viewkategori')}}" class="nav-link">
+              <i class="nav-icon fas fa-cloud"></i>
+              <p>
+                Kategori Program
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('viewartikel')}}" class="nav-link">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>
+                Play List Program
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('link')}}" class="nav-link">
+              <i class="nav-icon fas fa-link"></i>
+              <p>
+                Link Sreaming
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('schedule')}}" class="nav-link">
+              <i class="nav-icon fas fa-desktop"></i>
+              <p>
+                Acara TV
+              </p>
+            </a>
+          </li>
+        </ul>
+        @elseif(session()->get('level') == 'Berita')
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview menu-open">
+            <a href="{{route('home')}}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('tentangkami')}}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Tentang kami
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('ratecardindex')}}" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                Rate Card
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('viewnews')}}" class="nav-link">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>
+                News
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('linklainya')}}" class="nav-link">
+              <i class="nav-icon fas fa-link"></i>
+              <p>
+                Link Lainnya
+              </p>
+            </a>
+          </li>
+        </ul>
+        @endif
       </nav>
     </div>
   </aside>
@@ -160,7 +255,7 @@
         <center>
             <img src="{{asset('/image/AdminLTELogo.png')}}" style="height:180px; width:180px" class="rounded-circle">
             <br>
-            <strong><h4>Gema Fajar Ramadhan</h4></strong>
+            <strong><h4>{{session()->get('nama_user')}}</h4></strong>
         </center>
         <ul class="list-group">
             <li class="list-group-item"><a class="btn btn-outline-warning btn-block">Setting</a></li>

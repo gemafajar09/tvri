@@ -19,6 +19,7 @@ class CreateUserModelsTable extends Migration
             $table->string('username',100);
             $table->string('password',255);
             $table->string('password_repeat',255);
+            $table->enum('level',['Superadmin', 'Acara', 'Berita']);
         });
     }
 

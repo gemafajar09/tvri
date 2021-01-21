@@ -26,6 +26,15 @@ Route::post('/auth', 'LoginController@login')->name('login')->middleware('ceklog
 Route::get('/exit', 'LoginController@logout')->name('keluar')->middleware('ceklogin');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('ceklogin');
 
+// user
+Route::get('/viewuser', 'UserController@index')->name('viewuser');
+Route::get('/adduser', 'UserController@adduser')->name('adduser');
+Route::post('/saveuser', 'UserController@save')->name('saveuser');
+Route::post('/updateuser', 'UserController@update')->name('updateuser');
+Route::get('/deleteuser/{id}', 'UserController@deletes')->name('deleteuser');
+Route::get('/edituser/{id}', 'UserController@getdata')->name('edituser');
+
+
 // slider
 Route::get('/viewslider', 'SliderController@index')->name('viewslider');
 Route::get('/addslider', 'SliderController@addslider')->name('addslider');
