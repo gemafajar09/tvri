@@ -116,6 +116,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('media-sosial')}}" class="nav-link">
+              <i class="nav-icon fas fa-globe"></i>
+              <p>
+                Sosial Media
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('gallery')}}" class="nav-link">
               <i class="nav-icon fas fa-images"></i>
               <p>
@@ -253,9 +261,9 @@
     <div class="modal-content">
       <div class="modal-body">
         <center>
-            <img src="{{asset('/image/AdminLTELogo.png')}}" style="height:180px; width:180px" class="rounded-circle">
+            <img src="{{asset('/image/TVRI_Aceh.png')}}" style="height:180px; width:180px" class="rounded-circle">
             <br>
-            <strong><h4>{{session()->get('nama_user')}}</h4></strong>
+            <strong><h4>{{session('nama_user')}}</h4></strong>
         </center>
         <ul class="list-group">
             <li class="list-group-item"><a class="btn btn-outline-warning btn-block">Setting</a></li>
