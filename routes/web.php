@@ -92,3 +92,6 @@ Route::get('/linklainyadelete/{id}', 'TautanController@deletes')->name('linklain
 Route::get('/ratecardindex','RateController@index')->name('ratecardindex');
 Route::post('/retecardsave', 'RateController@save')->name('retecardsave');
 Route::get('/retecarddelete/{id}', 'RateController@deletes')->name('retecarddelete');
+
+// mediasosial
+Route::get('/mediasosial','SosialController@index')->name('media-sosial');
