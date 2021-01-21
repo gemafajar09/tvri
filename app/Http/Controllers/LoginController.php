@@ -43,6 +43,7 @@ class LoginController extends Controller
             {
                 $r->session()->put("id_user", $cek->id_user);
                 $r->session()->put("nama_user", $cek->nama_user);
+                $r->session()->put("level", $cek->level);
                 return redirect('home')->with('pesan','Selamat Datang');
             }else{
                 return back()->with('error','Silahkan Login Kembali');
