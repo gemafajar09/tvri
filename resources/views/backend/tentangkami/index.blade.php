@@ -39,8 +39,10 @@
                             <td>
                                 <?php if($a->type == 1){
                                     echo $a->isi;
-                                }else{ ?>
+                                }elseif($a->type == 2){ ?>
                                     <img src="{{asset('/tentang/'.$a->isi)}}" style="width:100px" alt="">
+                                <?php }elseif($a->type == 3){ ?>
+                                    <object data="{{asset('/tentang/'.$a->isi)}}" type="application/pdf" width="300" height="200"></object>
                                 <?php } ?>
                             </td>
                             <td style="text-align:center">

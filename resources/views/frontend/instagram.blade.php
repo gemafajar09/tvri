@@ -1,5 +1,5 @@
-<center style="padding-top:1%">
-    <div class="" data-aos="fade-up">
+<center style="padding-top:1%" data-aos="fade-up">
+    <div class="">
       <h3><b>INSTAGRAM</b></h3>
     </div>
 </center>

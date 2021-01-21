@@ -34,7 +34,8 @@ Edit Tentang Kami
                         <select name="pilihan" id="pilihan" class="form-control">
                             <option value="">-SELECT-</option>
                             <option value="1">Text</option>
-                            <option value="2">File</option>
+                            <option value="2">File Foto</option>
+                            <option value="3">PDF</option>
                         </select>
                     </div>
                     <div class="form-group" id="satu" style="display:none">

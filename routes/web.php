@@ -17,6 +17,8 @@ Route::get('/programdetail/{id}', 'ArtikelController@tampildetail')->name('progr
 Route::get('/statistik', 'FrontendController@statistik')->name('statistik');
 Route::get('/tentang_kami/{id}', 'TentangController@tentangkami')->name('tentang_kami');
 Route::get('/gallery-home', 'GaleryController@gallery')->name('gallerys');
+Route::get('/rate/produksi', 'RateController@program')->name('rate_produksi');
+Route::get('/rate/penyiaran', 'RateController@iklan')->name('rate_penyiaran');
 
 // authentication backend
 Route::get('/logins', 'LoginController@index')->name('logins');
@@ -72,6 +74,7 @@ Route::post('/editschedule', 'JadwalController@edit')->name('editschedule');
 Route::get('/tentangkami', 'TentangController@index')->name('tentangkami');
 Route::get('/addinfo', 'TentangController@add')->name('addinfo');
 Route::get('/editinfo/{id}', 'TentangController@edit')->name('editinfo');
+Route::post('/savetentang', 'TentangController@save')->name('savetentang');
 Route::post('/saveinfo', 'TentangController@saveedit')->name('saveinfo');
 Route::get('/deleteinfo/{id}', 'TentangController@delete')->name('deleteinfo');
 

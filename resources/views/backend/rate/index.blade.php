@@ -18,7 +18,7 @@ Rate Card
                     <h5 class="m-0">Rate Card</h5>
                 </div>
                 <div class="float-right">
-                    <button type="button" onclick="add()" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></button>
+                    {{-- <button type="button" onclick="add()" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-plus"></i></button> --}}
                 </div>
             </div>
             <div class="card-body">
@@ -41,7 +41,7 @@ Rate Card
                             <td style="text-align:center"><?= $a->deskripsi_rate ?></td>
                             <td style="text-align:center">
                                 <button type="button" onclick="edit('{{$a->id_rate}}','{{$a->kategori_rate}}','{{$a->image_rate}}','{{$a->deskripsi_rate}}')" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></button>
-                                <a href="{{route('retecarddelete',encrypt($a->id_rate))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                {{-- <a href="{{route('retecarddelete',encrypt($a->id_rate))}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -64,7 +64,7 @@ Rate Card
               <div class="form-grou">
                   <label for="">Kategori Rate</label>
                   <input type="hidden" name="id_rate" id="id_rate">
-                  <input type="text" class="form-control" name="kategori_rate" id="kategori_rate" required>
+                  <input type="text" readonly class="form-control" name="kategori_rate" id="kategori_rate" required>
               </div>
               <div class="form-group">
                   <label for="">Image Rate</label>

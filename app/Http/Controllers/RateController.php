@@ -71,4 +71,16 @@ class RateController extends Controller
             return back()->with('error', 'Hapus Data Gagal');
         }
     }
+
+    // frontend
+    public function program()
+    {
+        $data = DB::table('tb_ratecard')->where('kategori_rate','Rate Card Produksi')->first();
+        return view('frontend.rate.program',compact('data'));
+    }
+    public function iklan()
+    {
+        $data = DB::table('tb_ratecard')->where('kategori_rate','Rate Card Penyiaran', 'iklan')->first();
+        return view('frontend.rate.iklan',compact('data'));
+    }
 }
