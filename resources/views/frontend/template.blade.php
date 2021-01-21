@@ -118,11 +118,17 @@
               <b>Follow Us :</b>
             </div>
             <div class="col-md-8">
+              <?php
+              $tw = DB::table('tb_mediasoal')->where('kategori','Twitter')->first();
+              $ins = DB::table('tb_mediasoal')->where('kategori','Instagram')->first();
+              $fb = DB::table('tb_mediasoal')->where('kategori','Facebook')->first();
+              $yt = DB::table('tb_mediasoal')->where('kategori','YouTube')->first();
+              ?>
               <div class="social-links" style="font-size: 9px">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-youtube"></i></a>
+                <a href="{{$tw->link}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="{{$fb->link}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="{{$ins->link}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="{{$yt->link}}" class="google-plus"><i class="bx bxl-youtube"></i></a>
               </div>
             </div>
           </div>
