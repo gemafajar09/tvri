@@ -12,7 +12,7 @@ class TentangController extends Controller
     public function __construct()
     {
         $this->rules = array(
-            'file' => 'mimes:jpeg,jpg,png|max:50000'
+            'file' => 'mimes:pdf,jpeg,jpg,png|max:50000'
         );
     }
 
@@ -32,28 +32,33 @@ class TentangController extends Controller
         $type = $r->pilihan;
         if($type == 1)
         {
-            $input = new TentangModel;
-            $input->title = $r->title;
-            $input->type = $type;
-            $input->isi = $r->isi;
-            $input->save();
+            DB::table('tb_tentang')->insert(
+                [
+                    'title' => $r->title,
+                    'type' => $r->pilihan,
+                    'isi' => $r->isi
+                ]
+                );
+
 
             return redirect('tentangkami')->with('pesan','Input Data Success');
         }
-        else if($type == 2)
+        else if($type == 2 || $type == 3)
         {
             $validator = Validator::make($r->all(),$this->rules);
             if($validator->fails()){
-                return back()->with('validasi','Pastikan Format File Dengan Benar.');
+                return back()->with('pesan','Pastikan Format File Dengan Benar.');
             }else{
                 $filename = $r->file->getClientOriginalName();
                 $r->file('file')->move('tentang',$r->file->getClientOriginalName());
                 // simpan
-                $input = new TentangModel;
-                $input->title = $r->title;
-                $input->type = $type;
-                $input->isi = $filename;
-                $input->save();
+                DB::table('tb_tentang')->insert(
+                    [
+                        'title' => $r->title,
+                        'type' => $r->pilihan,
+                        'isi' => $filename
+                    ]
+                );
     
                 return redirect('tentangkami')->with('pesan','Input Data Success');
             }
@@ -107,7 +112,7 @@ class TentangController extends Controller
     public function delete($ids)
     {
         $id = decrypt($ids);
-        $delete = DB::table('tb_tentang')->where('id',$id)->delete();
+        $delete = DB::table('tb_tentang')->where('id_tentang',$id)->delete();
         return back()->with('pesan','Delete Data Success');
     }
 

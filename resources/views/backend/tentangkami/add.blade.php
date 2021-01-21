@@ -22,7 +22,7 @@ Add Tentang Kami
                 </center>
             </div>
             <div class="card-body">
-                <form action="{{route('saveinfo')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('savetentang')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
                         <label for="">Title</label>
@@ -33,7 +33,8 @@ Add Tentang Kami
                         <select name="pilihan" id="pilihan" class="form-control">
                             <option value="">-SELECT-</option>
                             <option value="1">Text</option>
-                            <option value="2">File</option>
+                            <option value="2">File Foto</option>
+                            <option value="3">PDF</option>
                         </select>
                     </div>
                     <div class="form-group" id="satu" style="display:none">
@@ -72,7 +73,7 @@ Add Tentang Kami
         {
             $('#satu').show()
             $('#dua').hide()
-        }else if(id == 2){
+        }else if(id == 2 || id == 3){
             $('#satu').hide()
             $('#dua').show()
         }

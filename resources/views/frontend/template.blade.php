@@ -79,8 +79,8 @@
             <li><a href="{{route('gallerys')}}">Galery</a></li>
             <li class="drop-down"><a href="#">Rate Card</a>
               <ul>
-                <li><a href="">Rate Penyiaran</a></li>
-                <li><a href="">Rate Produksi</a></li>
+                <li><a href="{{ route('rate_produksi') }}">Rate Penyiaran</a></li>
+                <li><a href="{{ route('rate_penyiaran') }}">Rate Produksi</a></li>
               </ul>
             </li>
             <li><a href="{{route('showartikel')}}">Artikel</a></li>
