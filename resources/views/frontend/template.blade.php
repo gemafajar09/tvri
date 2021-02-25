@@ -11,21 +11,21 @@
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <link href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/line-awesome/css/line-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{asset('/owl/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/owl/owl.theme.default.min.css')}}">
-  <link href="{{asset('/assets/css/loading.css')}}" rel="stylesheet">
-  <link href="{{asset('/assets/css/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="/owl/owl.theme.default.min.css">
+  <link href="/assets/css/loading.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
 
 </head>
 <style>
@@ -38,11 +38,6 @@
 </style>
 
 <body>
-  <div class="preloader">
-    <div class="loading">
-      <img src="{{asset('/loading/load.gif')}}" alt="">
-    </div>
-  </div>
   <?php
     $ip = $_SERVER['REMOTE_ADDR'];
     $tanggal = date("Ymd");
@@ -54,51 +49,87 @@
       DB::table('tb_statistik')->insert(['ip' => $ip,'tanggal' => $tanggal,'klik'=> 1]);
     }
   ?>
-    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
-      <div class="container d-flex align-items-center">
+
+{{-- fixed-top d-flex  --}}
+<header id="header" style="padding-top:3%" class="fixed-top align-items-center  header-transparent ">
+  {{-- berita terkini --}}
+  <style>
+   .berita {
+     position: fixed;
+     left: 0;
+     top: 0;
+     z-index: 100;
+     width: 100%;
+     height: 7%;
+     text-align: center;
+   }
+  </style>
+  {{-- <section class="topbar berita text-white" style="background: linear-gradient(to top, #131f37, #192d50); padding:1%;"> --}}
+   <div class="container berita text-white">
+     <div>
+     <div class="row">
+       <div class="col-md-2">
+         <b>Berita Terkini :</b>
+       </div>
+       <div class="col-md-10">
+           <marquee>
+             <?php
+               $list = DB::table('tb_news')->get();
+               foreach ($list as $a){
+             ?>
+             <span style="text-white" style="color:#fff !important;"><?= substr(strip_tags($a->deskripsi),0,300) ?>....<a  style="color:#fff" href="{{route('detailberita',encrypt($a->id_news))}}" target="_blank">Baca Selengkapnya</a></span>
+           <?php } ?>
+           </marquee>
+       </div>
+     </div>
   
-        <div class="logo mr-auto">
-          <h1 class="text-light"><a href="{{route('index')}}"><img src="{{asset('/image/TVRI_Aceh.png')}}" alt=""></a></h1>
-        </div>
-  
-        <nav class="nav-menu d-none d-lg-block">
+     </div>
+   </div>
+  {{-- </section> --}}
+     
+  <div class="container d-flex align-items-center">
+    
+    <div class="logo mr-auto">
+      <h1 class="text-light"><a href="{{route('index')}}"><img src="{{asset('/image/TVRI_Aceh.png')}}" alt=""></a></h1>
+    </div>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class=""><a href="{{route('index')}}">Home</a></li>
+        <li class="drop-down"><a href="">Program</a>
           <ul>
-            <li class=""><a href="{{route('index')}}">Home</a></li>
-            <li class="drop-down"><a href="">Program</a>
-              <ul>
-                <?php
-                  $datamenu = DB::table('tb_kategori')->get();
-                ?>
-                @foreach($datamenu as $i => $kat)
-                  <li><a href="{{route('showprogram',encrypt($kat->id_kategori))}}">{{$kat->kategori}}</a></li>
-                @endforeach
-              </ul>
-            </li>
-            <li><a href="{{route('schedulelist')}}">Jadwal TV</a></li>
-            <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
-            <li><a href="{{route('gallerys')}}">Galery</a></li>
-            <li class="drop-down"><a href="#">Rate Card</a>
-              <ul>
-                <li><a href="{{ route('rate_produksi') }}">Rate Penyiaran</a></li>
-                <li><a href="{{ route('rate_penyiaran') }}">Rate Produksi</a></li>
-              </ul>
-            </li>
-            <li><a href="{{route('showartikel')}}">Artikel</a></li>
-            <li class="drop-down"><a href="">Tentang Kami</a>
-              <ul>
-                <?php
-                  $tentang = DB::table('tb_tentang')->get();
-                ?>
-                @foreach($tentang as $i => $a)
-                  <li><a href="{{route('tentang_kami',encrypt($a->id_tentang))}}">{{$a->title}}</a></li>
-                @endforeach
-              </ul>
-            </li>
+            <?php
+              $datamenu = DB::table('tb_kategori')->get();
+            ?>
+            @foreach($datamenu as $i => $kat)
+              <li><a href="{{route('showprogram',encrypt($kat->id_kategori))}}">{{$kat->kategori}}</a></li>
+            @endforeach
           </ul>
-        </nav>
-  
-      </div>
-    </header>
+        </li>
+        <li><a href="{{route('schedulelist')}}">Jadwal TV</a></li>
+        <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
+        <li><a href="{{route('gallerys')}}">Galery</a></li>
+        <li class="drop-down"><a href="#">Rate Card</a>
+          <ul>
+            <li><a href="{{ route('rate_produksi') }}">Rate Penyiaran</a></li>
+            <li><a href="{{ route('rate_penyiaran') }}">Rate Produksi</a></li>
+          </ul>
+        </li>
+        <li><a href="{{route('showartikel')}}">Artikel</a></li>
+        <li class="drop-down"><a href="">Tentang Kami</a>
+          <ul>
+            <?php
+              $tentang = DB::table('tb_tentang')->get();
+            ?>
+            @foreach($tentang as $i => $a)
+              <li><a href="{{route('tentang_kami',encrypt($a->id_tentang))}}">{{$a->title}}</a></li>
+            @endforeach
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
 
     @yield('content')
 
@@ -179,40 +210,6 @@
     </div>
   </footer>
 
-  {{-- berita terkini --}}
-  <style>
-     .berita {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      z-index: 100;
-      width: 100%;
-      text-align: center;
-    }
-  </style>
-  <section class="topbar berita text-white" style="background: linear-gradient(to top, #131f37, #192d50); padding:1%;">
-    <div class="container">
-      <div>
-      <div class="row">
-        <div class="col-md-2">
-          <b>Berita Terkini :</b>
-        </div>
-        <div class="col-md-10">
-            <marquee>
-              <?php
-                $list = DB::table('tb_news')->get();
-                foreach ($list as $a){
-              ?>
-              <span style="text-white" style="color:#fff !important;"><?= substr(strip_tags($a->deskripsi),0,300) ?>....<a  style="color:#fff" href="{{route('detailberita',encrypt($a->id_news))}}" target="_blank">Baca Selengkapnya</a></span>
-            <?php } ?>
-            </marquee>
-        </div>
-      </div>
-
-      </div>
-    </div>
-  </section>
-
   <a href="#" style="margin-bottom: 3%" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <script src="{{asset('/assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -228,7 +225,6 @@
   <script src="{{asset('/assets/js/anime.min.js')}}"></script>
   <script>
     $(document).ready(function(){
-      $(".preloader").fadeOut();
       $(".owl-carousel").owlCarousel({
           loop:false,
           margin:10,
