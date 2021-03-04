@@ -19,8 +19,9 @@ Route::get('/tentang_kami/{id}', 'TentangController@tentangkami')->name('tentang
 Route::get('/gallery-home', 'GaleryController@gallery')->name('gallerys');
 Route::get('/rate/produksi', 'RateController@program')->name('rate_produksi');
 Route::get('/rate/penyiaran', 'RateController@iklan')->name('rate_penyiaran');
+Route::get('/mosque_info', 'MasjidController@infomasjid')->name('mosque_info');
 
-// authentication backend
+// authentication backend 
 Route::get('/logins', 'LoginController@index')->name('logins');
 Route::post('/auth', 'LoginController@login')->name('login')->middleware('ceklogin');
 Route::get('/exit', 'LoginController@logout')->name('keluar')->middleware('ceklogin');
@@ -104,3 +105,11 @@ Route::get('/retecarddelete/{id}', 'RateController@deletes')->name('retecarddele
 
 // mediasosial
 Route::get('/mediasosial','SosialController@index')->name('media-sosial');
+
+// infaq_masjid
+Route::get('/viewinfaq', 'MasjidController@index')->name('viewinfaq');
+Route::get('/addinfaq', 'MasjidController@addiinfaq')->name('addinfaq');
+Route::post('/saveinfaq', 'MasjidController@save')->name('saveinfaq');
+Route::post('/updateinfaq', 'MasjidController@update')->name('updateinfaq');
+Route::get('/deleteinfaq/{id}', 'MasjidController@deletes')->name('deleteinfaq');
+Route::get('/editinfaq/{id}', 'MasjidController@getdata')->name('editinfaq');

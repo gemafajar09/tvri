@@ -44,23 +44,23 @@ Link Streaming
 
 <div class="modal" id="linkedit" style="background-color:transparent">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+    <div class="modal-content">
         <div class="modal-body">
-          <form action="{{ route('uplink')}}" method="POST">
-              @csrf
-              <input type="hidden" id="id_link" name="id_link">
-              <div class="form-group">
-                  <label for="">Link</label>
-                  <input type="text" class="form-control" name="link" id="link">
-              </div>
-              <div class="float-right">
-                  <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
-              </div>
-          </form>
+        <form action="{{ route('uplink')}}" method="POST">
+            @csrf
+            <input type="hidden" id="id_link" name="id_link">
+            <div class="form-group">
+                <label for="">Link</label>
+                <input type="text" class="form-control" name="link" id="link">
+            </div>
+            <div class="float-right">
+                <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
+            </div>
+        </form>
         </div>
-      </div>
     </div>
-  </div>
+    </div>
+</div>
 
 @if (session('validasi'))
 	<script>

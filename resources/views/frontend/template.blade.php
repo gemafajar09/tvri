@@ -51,42 +51,41 @@
   ?>
 
 {{-- fixed-top d-flex  --}}
-<header id="header" style="padding-top:3%" class="fixed-top align-items-center  header-transparent ">
+<header id="header" style="padding-top:1%; height: 65px;" class="fixed-top align-items-center  header-transparent ">
   {{-- berita terkini --}}
-  <style>
-   .berita {
-     position: fixed;
-     left: 0;
-     top: 0;
-     z-index: 100;
-     width: 100%;
-     height: 7%;
-     text-align: center;
-   }
-  </style>
-  {{-- <section class="topbar berita text-white" style="background: linear-gradient(to top, #131f37, #192d50); padding:1%;"> --}}
-   <div class="container berita text-white">
-     <div>
-     <div class="row">
-       <div class="col-md-2">
-         <b>Berita Terkini :</b>
-       </div>
-       <div class="col-md-10">
-           <marquee>
-             <?php
-               $list = DB::table('tb_news')->get();
-               foreach ($list as $a){
-             ?>
-             <span style="text-white" style="color:#fff !important;"><?= substr(strip_tags($a->deskripsi),0,300) ?>....<a  style="color:#fff" href="{{route('detailberita',encrypt($a->id_news))}}" target="_blank">Baca Selengkapnya</a></span>
-           <?php } ?>
-           </marquee>
-       </div>
-     </div>
-  
-     </div>
-   </div>
-  {{-- </section> --}}
-     
+  <!-- <style>
+  .berita {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 7%;
+    text-align: center;
+  }
+  </style> -->
+  <!-- {{-- <section class="topbar berita text-white" style="background: linear-gradient(to top, #131f37, #192d50); padding:1%;"> --}}
+  <div class="container berita text-white">
+    <div>
+      <div class="row">
+        <div class="col-md-2">
+          <b>Berita Terkini :</b>
+        </div>
+        <div class="col-md-10">
+            <marquee>
+              <?php
+                $list = DB::table('tb_news')->get();
+                foreach ($list as $a){
+              ?>
+              <span style="text-white" style="color:#fff !important;"><?= substr(strip_tags($a->deskripsi),0,300) ?>....<a  style="color:#fff" href="{{route('detailberita',encrypt($a->id_news))}}" target="_blank">Baca Selengkapnya</a></span>
+            <?php } ?>
+            </marquee>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- </section> --}} -->
+    
   <div class="container d-flex align-items-center">
     
     <div class="logo mr-auto">
@@ -105,16 +104,6 @@
             @endforeach
           </ul>
         </li>
-        <li><a href="{{route('schedulelist')}}">Jadwal TV</a></li>
-        <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
-        <li><a href="{{route('gallerys')}}">Galery</a></li>
-        <li class="drop-down"><a href="#">Rate Card</a>
-          <ul>
-            <li><a href="{{ route('rate_produksi') }}">Rate Penyiaran</a></li>
-            <li><a href="{{ route('rate_penyiaran') }}">Rate Produksi</a></li>
-          </ul>
-        </li>
-        <li><a href="{{route('showartikel')}}">Artikel</a></li>
         <li class="drop-down"><a href="">Tentang Kami</a>
           <ul>
             <?php
@@ -125,6 +114,17 @@
             @endforeach
           </ul>
         </li>
+        <li><a href="{{route('schedulelist')}}">Jadwal TV</a></li>
+        <li id="live" class="active"><a href="{{route('live')}}">Live</a></li>
+        <li><a href="{{route('gallerys')}}">Galery</a></li>
+        <li class="drop-down"><a href="#">Rate Card</a>
+          <ul>
+            <li><a href="{{ route('rate_produksi') }}">Rate Penyiaran</a></li>
+            <li><a href="{{ route('rate_penyiaran') }}">Rate Produksi</a></li>
+          </ul>
+        </li>
+        <li><a href="{{route('showartikel')}}">Artikel</a></li>
+        <li><a href="{{route('mosque_info')}}">Masjid</a></li>
       </ul>
     </nav>
 
@@ -133,7 +133,7 @@
 
     @yield('content')
 
-  <footer style="" style="background: linear-gradient(to top, #1e3c72, #2a5298);position: fixed; bottom: 0;z-index: 100;" id="footer">
+  <footer style="" style="background: linear-gradient(to top, #1e3c72, #2a5298);position: fixed; bottom: 0;z-index: 100;" id="footer" pb-3>
     <div class="container">
       <div class="row">
         <div class="col-md-4" data-aos="fade-down">
@@ -145,10 +145,10 @@
             Website : <a href="http://www.tvriaceh.com">www.tvriaceh.id</a>
           </p>
           <div class="row">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12 pt-1">
               <b>Follow Us :</b>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 text-left">
               <?php
               $tw = DB::table('tb_mediasoal')->where('kategori','Twitter')->first();
               $ins = DB::table('tb_mediasoal')->where('kategori','Instagram')->first();
@@ -164,7 +164,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2 col-sm-12">
+        <!-- <div class="col-md-1 col-sm-12">
           {{-- kunjungan --}}
           <div data-aos="fade-down">
             <b style="font-size: 13px">Kunjungan Hari Ini</b>
@@ -182,8 +182,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
+        </div> -->
+        <div class="col-md-8 col-sm-12">
           <div class="row">
             <div class="col-md-6 col-sm-12" data-aos="fade-down">
               <h4 class="text-white topicof" style="margin-left: 1em;font-size: 20px;"><img src="{{asset('image/towersignalantenna-115836_115793.png')}}" style="width:10%; height:10%; no-repeat left; color:white" alt=""> &nbsp; &nbsp; TVRI Aceh</h4>
@@ -207,6 +207,13 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          All Rights Reserved by 
+          <a href="http://mediatamaweb.co.id" target="_blank">MEDIATAMAWEB.CO.ID</a>. 
+          <!-- Developed by <a href="https://instagram.com/taufanomt" target="_blank">Taufano</a>. -->
+          </div>
+        </div>
     </div>
   </footer>
 
@@ -237,7 +244,7 @@
                   items:3
               },
               1000:{
-                  items:5
+                  items:4
               }
           }
       });
