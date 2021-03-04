@@ -16,6 +16,7 @@ class FrontendController extends Controller
         $data['programacara'] = DB::table('tb_artikel')->get();
         $data['jadwal'] = DB::table('tb_jadwal')->where('tanggal',$tanggal)->get();
         $data['kategori'] = DB::table('tb_kategori')->get();
+
         return view('frontend.home',$data);
     }
 
