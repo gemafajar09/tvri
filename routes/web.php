@@ -20,6 +20,7 @@ Route::get('/gallery-home', 'GaleryController@gallery')->name('gallerys');
 Route::get('/rate/produksi', 'RateController@program')->name('rate_produksi');
 Route::get('/rate/penyiaran', 'RateController@iklan')->name('rate_penyiaran');
 Route::get('/mosque_info', 'MasjidController@infomasjid')->name('mosque_info');
+Route::get('/mosque_info_detail', 'MasjidController@infodetailmasjid')->name('mosque_info_detail');
 
 // authentication backend 
 Route::get('/logins', 'LoginController@index')->name('logins');
