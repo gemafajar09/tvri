@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  height: 100px;
+  height: 65px;
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
-  top: 55px;
+  top: 17px;
   z-index: 9998;
   border: 0;
   background: none;
@@ -652,7 +652,7 @@ section {
   }
 
   .logo{
-    padding-top:10%;
+    padding-top:2%;
   }
 }
 
@@ -665,7 +665,7 @@ section {
   }
 
   .logo{
-    padding-top:10%;
+    /* padding-top:10%; */
   }
 }
 

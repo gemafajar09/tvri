@@ -51,7 +51,7 @@
   ?>
 
 {{-- fixed-top d-flex  --}}
-<header id="header" style="padding-top:1%; height: 65px;" class="fixed-top align-items-center  header-transparent ">
+<header id="header" style="padding-top:1%;" class="fixed-top align-items-center  header-transparent ">
   {{-- berita terkini --}}
   <!-- <style>
   .berita {
@@ -89,7 +89,7 @@
   <div class="container d-flex align-items-center">
     
     <div class="logo mr-auto">
-      <h1 class="text-light"><a href="{{route('index')}}"><img src="{{asset('/image/TVRI_Aceh.png')}}" alt=""></a></h1>
+      <h1 class="text-light"><a href="{{route('index')}}"><img src="{{asset('/image/logo_tvri_web.png')}}" alt=""></a></h1>
     </div>
     <nav class="nav-menu d-none d-lg-block">
       <ul>

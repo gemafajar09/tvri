@@ -85,10 +85,10 @@
       <div class="text-white" style="background: linear-gradient(to top, #1e3c72, #2a5298);">
         <div>
           <div class="row">
-            <div class="col-md-2 text-center">
-              <b>Berita Terkini :</b>
-            </div>
-            <div class="col-md-10">
+            <div class="col-4 col-lg-2 text-center">
+              <b class="d-flex">Berita Terkini :</b>
+              </div>
+              <div class="col-8 col-lg-10">
                 <marquee>
                   <?php
                     $list = DB::table('tb_news')->get();
