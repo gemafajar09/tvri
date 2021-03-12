@@ -27,6 +27,10 @@
   <link href="/assets/css/loading.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
 
+  <!-- data table -->
+  <link rel="stylesheet" href="{{asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+
 </head>
 <style>
   body {
@@ -38,6 +42,8 @@
 </style>
 
 <body>
+  <script src="{{asset('/assets/vendor/jquery/jquery.min.js')}}"></script>
+
   <?php
     $ip = $_SERVER['REMOTE_ADDR'];
     $tanggal = date("Ymd");
@@ -218,7 +224,6 @@
   </footer>
 
   <a href="#" style="margin-bottom: 3%" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <script src="{{asset('/assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
   <script src="{{asset('/assets/vendor/php-email-form/validate.js')}}"></script>
@@ -230,6 +235,13 @@
   <script src="{{asset('/owl/owl.carousel.min.js')}}"></script>
   <script src="{{asset('/assets/js/main.js')}}"></script>
   <script src="{{asset('/assets/js/anime.min.js')}}"></script>
+  
+  <!-- data table -->
+  <script src="{{asset('/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+
   <script>
     $(document).ready(function(){
       $(".owl-carousel").owlCarousel({
@@ -268,7 +280,11 @@
         },
         delay: 250 // All properties except 'scale' inherit 250ms delay
       });
-      
+
+        $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
     })
 
     setInterval(function(){ pengunjung() },2000)
@@ -290,6 +306,11 @@
       $('#live').fadeOut();
       $('#live').fadeIn();  
     }, 1000);
+
+    function showprofile()
+    {
+        $('#profilemodal').modal()
+    }
 
   </script>
 

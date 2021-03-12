@@ -14,10 +14,26 @@ class MasjidController extends Controller
     {
         $data = DB::table('tb_kas_masjid')
         ->where('jenis_kas','=', 'Pemasukan')
+        ->orderBy('id_kas_masjid', 'DESC')
+        ->limit('5')
         ->get();
 
-        $total_saldo = DB::table('tb_kas_masjid');
-        return view('frontend.mosque.index',compact('data'));
+        $total_saldo = DB::table('tb_kas_masjid')
+                            ->select(DB::raw('(SUM(pemasukan) - SUM(pengeluaran)) as total'))
+                            ->first();
+
+        return view('frontend.mosque.index',compact('data', 'total_saldo'));
+    }
+    
+    public function infodetailmasjid()
+    {
+        $data = DB::table('tb_kas_masjid')->get();
+
+        $total_saldo = DB::table('tb_kas_masjid')
+                            ->select(DB::raw('(SUM(pemasukan) - SUM(pengeluaran)) as total'))
+                            ->first();
+
+        return view('frontend.mosque.detail',compact('data', 'total_saldo'));
     }
 
     // backend
@@ -26,6 +42,7 @@ class MasjidController extends Controller
         $data = DB::table('tb_kas_masjid')->get();
         return view('backend.infaqmasjid.index',compact('data'));
     }
+    
 
     // public function addslider()
     // {

@@ -44,7 +44,9 @@
         <div class="col-md-4 bg-light mt-4 mb-3">
             <div class="mt-3 text-bolt" style="color: #192d50;">LAPORAN SALDO DANA INFAQ</div>
             <hr style="margin-top:-1px">
-            <h2 style="color: #192d50;">SALDO: <strong style="float: right; color: #192d50;">Rp Total,-</strong></h2>
+            
+            <h2 style="color: #192d50;">SALDO: <strong style="float: right; color: #192d50;">Rp {{ number_format($total_saldo->total) }},-</strong></h2>
+
             <h6 style="color: #192d50;">Salurkan infaq Anda melalui rekening berikut</h6><hr>
             <div style="text-align:center; background: linear-gradient(to top, #131f37, #192d50); height: 100px; color:#fff">
                 <strong>Nama Bank</strong>
@@ -52,7 +54,7 @@
                 <div>----------</div>
                 <div>Atas Nama:-----</div>
             </div>
-            <div class="btn mt-2 font-weight-bold" style="border: 3px solid #192d50; background:transparent; color: #192d50; float: right;">LIHAT LAPORAN</div>
+            <a href="{{route('mosque_info_detail')}}" class="btn mt-2 font-weight-bold" style="border: 3px solid #192d50; background:transparent; color: #192d50; float: right;">LIHAT LAPORAN</a>
         </div>
     </div>
     <br>
