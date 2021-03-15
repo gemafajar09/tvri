@@ -3,15 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\Http;
 use App\MasjidModel;
+use DB;
 
 class MasjidController extends Controller
 {
 
+
+    // https://api.banghasan.com/sholat/format/json/kota/nama/aceh
+    // https://api.banghasan.com/sholat/format/json/jadwal/kota/703/tanggal/2017-02-07
+
     // frontend
     public function infomasjid()
     {
+        $tanggal = date('Y-m-d');
+        $response = Http::get('https://api.banghasan.com/sholat/format/json/jadwal/kota/514/tanggal/'.$tanggal);
+        $tmp_jadwal = $response->json();
+        $data_jadwal = $tmp_jadwal['jadwal']['data'];
+        // dd($data_jadwal);
+        // dd($response->json());
         $data = DB::table('tb_kas_masjid')
         ->where('jenis_kas','=', 'Pemasukan')
         ->orderBy('id_kas_masjid', 'DESC')
@@ -21,8 +32,7 @@ class MasjidController extends Controller
         $total_saldo = DB::table('tb_kas_masjid')
                             ->select(DB::raw('(SUM(pemasukan) - SUM(pengeluaran)) as total'))
                             ->first();
-
-        return view('frontend.mosque.index',compact('data', 'total_saldo'));
+        return view('frontend.mosque.index',compact('data_jadwal','data', 'total_saldo'));
     }
     
     public function infodetailmasjid()
