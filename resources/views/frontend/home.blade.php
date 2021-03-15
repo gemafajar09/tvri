@@ -82,7 +82,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <div class="text-white" style="background: linear-gradient(to top, #1e3c72, #2a5298);">
+      <div class="text-white" ">
         <div>
           <div class="row">
             <div class="col-4 col-lg-2 text-center">
